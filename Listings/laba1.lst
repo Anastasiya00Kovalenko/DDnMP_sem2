@@ -1,0 +1,83 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000 20000100 
+                       STACK_TOP
+                               EQU              0x20000100
+    2 00000000                 PRESERVE8
+    3 00000000                 THUMB
+    4 00000000         
+    5 00000000                 AREA             RESET, CODE, READONLY
+    6 00000000         ; Таблица векторов прерываний
+    7 00000000 20000100        DCD              STACK_TOP   ; Указател�
+                                                            � на вершин
+                                                            у стека
+    8 00000004 00000000        DCD              Start       ; Вектор сб
+                                                            роса
+    9 00000008                 ENTRY
+   10 00000008         Start   PROC                         ; Начало пр
+                                                            ограммы
+   11 00000008         ; Первая строчка кода на ассемб
+                       лере
+   12 00000008         loop                                 ; Бесконеч�
+                                                            �ый цикл
+   13 00000008 E7FE            B                loop
+   14 0000000A                 ENDP                         ; Конец про
+                                                            граммы
+   15 0000000A                 END                          ; Конец фай
+                                                            ла
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\laba1.d -o.\objects\laba1.o -I.\RTE\_Target_1 -IC:\Keil_
+v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include -IC:\Keil_v5\ARM\CMSIS\Incl
+ude --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 524" --pred
+efine="STM32F10X_MD SETA 1" --list=.\listings\laba1.lst laba1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 5 in file laba1.s
+   Uses
+      None
+Comment: RESET unused
+Start 00000008
+
+Symbol: Start
+   Definitions
+      At line 10 in file laba1.s
+   Uses
+      At line 8 in file laba1.s
+Comment: Start used once
+loop 00000008
+
+Symbol: loop
+   Definitions
+      At line 12 in file laba1.s
+   Uses
+      At line 13 in file laba1.s
+Comment: loop used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+STACK_TOP 20000100
+
+Symbol: STACK_TOP
+   Definitions
+      At line 1 in file laba1.s
+   Uses
+      At line 7 in file laba1.s
+Comment: STACK_TOP used once
+1 symbol
+337 symbols in table
